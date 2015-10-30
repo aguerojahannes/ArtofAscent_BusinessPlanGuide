@@ -1,0 +1,35 @@
+<div>
+Before you sign up, let's make sure you understand how this works.
+
+Got it?
+		<md-content ng-click="nav.overlayRegister()"></md-content>
+				<h1>Let's get started!</h1>
+				<hr>
+				<form name="registerUser" ng-submit="nav.registerUser()">
+						<md-input-container>
+							<label>User Name</label>
+							<input required name="username" ng-model="nav.user.username">
+						</md-input-container>
+						<md-input-container>
+							<label>Email Address</label>
+							<input required type="email" name="username" ng-model="nav.user.email">
+						</md-input-container>
+						<md-input-container>
+							<label>Password</label>
+							<input required type="password" name="userPassword" ng-model="nav.user.password" minlength="5" />
+						</md-input-container>
+						<md-input-container>
+							<label>Confirm Password</label>
+							<input required type="password" name="userPassword" ng-model="nav.user.confirmPassword" minlength="5" />
+						</md-input-container>
+							<span ng-if="nav.errReg">{{nav.errReg}}<br/></span>
+							<div ng-show="!(nav.user.password === nav.user.confirmPassword)">Your passwords must match.</div>
+							<md-button type="submit" ng-disabled="!nav.user.username || !nav.user.email || !nav.user.password || !(nav.user.password === nav.user.confirmPassword)">Register</md-button>
+						<hr>
+							<h6>Already joined our community?</h6>
+							<md-button type="button" ng-click="nav.overlayRegister(); nav.overlayLogin()">Login</md-button>
+
+				</form>
+
+
+	</div>

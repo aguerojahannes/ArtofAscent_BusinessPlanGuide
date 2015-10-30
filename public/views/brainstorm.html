@@ -1,0 +1,71 @@
+<div ng-controller="BrainstormController as bs" layout="row">
+   <div layout="row">
+      <a ng-click="bs.toggleLeft()"><div style="background-color:yellow"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <img class-"arrow-right" src="/assets/right.png"/>
+   </div></a>
+   <div>
+      <md-sidenav class="brainstorm md-sidenav-left md-whiteframe-z2" md-component-id="left">
+                                   <md-toolbar class="md-theme-light">
+                                     <h1 class="md-toolbar-tools" >Brainstorm</h1>
+                                   </md-toolbar>
+                                 <md-content  layout-padding style="background-color: rgb(244,67,54); color : white; height: 100%">
+                                   <form ng-submit="bs.saveBS()">
+                                         <md-input-container>
+                                           <textarea style="color : white; border-color: white" type="text" ng-model="bs.brainstorm.brainstorm || bs.instructions"></textarea>
+                                         </md-input-container>
+                                         <md-button style="color : white" type="submit" class="md-primary">Save</md-button><br/>
+                                         <!-- when saved, display toast: https://material.angularjs.org/latest/demo/toast -->
+                                     </form>
+                                     <a ng-click="bs.close()"><img class-"arrow-left" src="/assets/left.png"/></a>
+                                   </md-content>
+                             </md-sidenav>
+</div>
+</div>
+
+<div layout="column">
+   <md-button class="section">Executive Summary</md-button>
+   <md-button class="section">General Description</md-button>
+   <ui-view></ui-view>
+   <md-button class="section">Products and Services</md-button>
+   <md-button class="section">Marketing Plan</md-button>
+   <md-button class="section">Operational Plan</md-button>
+
+</div>
+
+
+
+<!--
+   <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('min-width: 333px')" style="background-color:grey">
+       Left Nav!
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+       </p>
+       <md-button ng-click="bs.close()">
+        Close Left Menu
+       </md-button>
+     </md-sidenav> -->
+     <!-- <md-content>
+       Center Content
+       <md-button ng-click="bs.close()">
+         Open Left Menu
+       </md-button>
+     </md-content>  -->
+
+
+
+ <!-- <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+     <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+     </md-toolbar>
+     <md-content layout-padding>
+      <md-button ng-click="bs.close()" class="md-primary">  hide-gt-md
+         Close Sidenav Left
+      </md-button>
+      <p hide-md show-gt-md>
+         This sidenav is locked open on your device. To go back to the default behavior,
+         narrow your display.
+      </p>
+     </md-content>
+   </md-sidenav> -->
+
+
+</div>
