@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-	<title>My App</title>
+	<title>Art of Ascent | Business Plan Creator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
-<body><!--figure out where this goes, and /or why this broke code when it wwas in body: ng-controller="GlobalController as glob" -->
+<body ng-controller="GlobalController as glob"><!--figure out where this goes, and /or why this broke code when it wwas in body: ng-controller="GlobalController as glob" -->
 
-	<div id="top" layout="row">
-		<header id="logo" flex><a ui-sref="home">logo</a></header>
-		<nav id="nav" layout="r">
-			<md-button ui-sref="Create">Create</md-button>
-			<!-- <md-content layout="row"> find a better place for this. drop down?
-				<md-input-container>
-					<input required name="username"  placeholder="password" ng-model="nav.user.username"/>
-				</md-input-container>
-				<md-input-container>
-					<input required type="password" placeholder="password" ng-model="nav.user.password" minlength="5" />
-				</md-input-container>
-			</md-content> -->
-			<md-button ui-sref="Create">Login</md-button>
-			<md-button ui-sref="Review">Logout</md-button>
-			<md-button ui-sref="SignUp">Sign Up</md-button>
+<div id="site" layout="column"  flex="100">
+	<div id="top" layout="row"  flex="100">
+		<header id="logo-container" flex><a ui-sref="Home"><img id="logo" src="/assets/logo.png"></a></header>
+		<nav id="nav" layout="column">
+			<div layout="row">
+			<div>
+			<md-button ui-sref="root.ExecutiveSummary">Create</md-button>
+		</div>
+		<div>
+			<md-button ng-click="glob.loginDisplay" ng-show="!glob.status.username" >Login</md-button>
+		</div>
+		<div>
+			<md-button ng-show="glob.status.username" type="button" ui-sref="Profile" class="btn btn-nav left btn-big">{{glob.status.username}}</md-button>
+		</div>
+		<div>
+			<md-button ng-click="glob.logout()" ng-show="glob.status.username">Logout</md-button>
+		</div>
+		<div>
+			<md-button ui-sref="SignUp" ng-show="!glob.status.username">Sign Up</md-button>
+			</div>
+		</div>
+			<div>
+				<form ng-submit="glob.login()"  layout="row">
+					<md-content layout="row">
+						<md-input-container>
+							<input required name="username"  placeholder="password" ng-model="glob.user.username"/>
+						</md-input-container>
+						<md-input-container>
+							<input required type="password" placeholder="password" ng-model="glob.user.password" minlength="5" />
+						</md-input-container>
+					</md-content>
+					<md-button class="md-fab" type="submit">Go</md-button>
+				</form>
+			</div>
 		</nav>
-
 	</div>
-	<ui-view style="height:100%"></ui-view> <!-- how can i get the view to stretch 100$ vertically even when content is small-->
-
+	<div id="main" layout="row" flex="100">
+		<ui-view  style="background-color:rgb(156, 31, 255);" flex="100"></ui-view> <!-- how can i get the view to stretch 100$ vertically even when content is small-->
+	</div>
+</div>
 	<!-- Ext Libs -->
 	<script src="angular/angular.min.js"></script>
 	<script src="angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -39,6 +59,7 @@
 	<script src="/javascript/app.js"></script>
 	<!-- Factories -->
 	<script src="/javascript/services/SideFactory.js"></script>
+	<script src="/javascript/services/GlobalFactory.js"></script>
 	<!-- Controllers -->
 	<script src="/javascript/controllers/GlobalController.js"></script>
 	<script src="/javascript/controllers/BrainstormController.js"></script>

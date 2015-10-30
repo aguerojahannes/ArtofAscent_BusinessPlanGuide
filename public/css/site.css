@@ -2,7 +2,7 @@
    background-color: #215544;
 }
 #logo {
-
+   height: 60px;
 }
 #nav {
 
@@ -21,4 +21,20 @@
 }
 md-backdrop.md-opaque {
     background-color: green;
+}
+.section {
+   margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+    width: 100%;
+}
+.btn-nav {
+   margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+.err-msg {
+   color: red;
 }

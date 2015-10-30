@@ -10,42 +10,45 @@
 		}).state('SignUp',{
 			url: '/signUp',
 			templateUrl: 'views/signUp.html'
+		}).state('Profile',{
+			url: '/profile/:id',
+			templateUrl: 'views/profile.html'
 		}).state('root',{
 			url: '',
 			templateUrl: 'views/brainstorm.html',
 			abstract: true
 		}).state('root.Create',{
-			url: '/createYourPlan',
+			url: '/createYourPlan/:id',
 			templateUrl: 'views/createYourPlan.html'
 		}).state('root.ExecutiveSummary',{
-			url: '/executiveSummary',
+			url: '/executiveSummary/:id',
 			templateUrl: 'views/executiveSummary.html'
-		}).state('GeneralDescription',{
-			url: '/generalDescription',
+		}).state('root.GeneralDescription',{
+			url: '/generalDescription/:id',
 			templateUrl: 'views/generalDescription.html'
-		}).state('Products_Services',{
-			url: '/products_services',
+		}).state('root.Products_Services',{
+			url: '/products_services/:id',
 			templateUrl: 'views/products_services.html'
-		}).state('MarketingPlan',{
-			url: '/marketingPlan',
+		}).state('root.MarketingPlan',{
+			url: '/marketingPlan/:id',
 			templateUrl: 'views/marketingPlan.html'
-		}).state('OperationalPlan',{
-			url: '/operationalPlan',
+		}).state('root.OperationalPlan',{
+			url: '/operationalPlan/:id',
 			templateUrl: 'views/operationalPlan.html'
-		}).state('Mgmt_Org',{
-			url: '/management_organization',
+		}).state('root.Mgmt_Org',{
+			url: '/management_organization/:id',
 			templateUrl: 'views/management_organization.html'
-		}).state('FinancialPlan',{
-			url: '/financialPlan',
+		}).state('root.FinancialPlan',{
+			url: '/financialPlan/:id',
 			templateUrl: 'views/financialPlan.html'
-		}).state('Apendices',{
-			url: '/apendices',
+		}).state('root.Apendices',{
+			url: '/apendices/:id',
 			templateUrl: 'views/apendices.html'
 		}).state('Print',{
-			url: '/print',
+			url: '/print/:id',
 			templateUrl: 'views/print.html'
 		}).state('Review',{
-			url: '/review',
+			url: '/review/:id',
 			templateUrl: 'views/review.html'
 		});
 		$urlRouterProvider.otherwise('/');

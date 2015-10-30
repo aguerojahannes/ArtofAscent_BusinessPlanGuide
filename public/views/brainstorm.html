@@ -1,6 +1,6 @@
-<div ng-controller="BrainstormController as bs" layout="row">
-   <div layout="row">
-      <a ng-click="bs.toggleLeft()"><div style="background-color:yellow"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div ng-controller="BrainstormController as bs" layout="row"  flex="100">
+   <div layout="row" layout-padding style="height: 100%">
+      <a ng-click="bs.toggleLeft()"><div style="background-color:yellow;height: 100%"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <img class-"arrow-right" src="/assets/right.png"/>
    </div></a>
    <div>
@@ -22,10 +22,10 @@
 </div>
 </div>
 
-<div layout="column">
-   <md-button class="section">Executive Summary</md-button>
+<div layout="column" flex="100">
+   <md-button class="section"  flex="100">Executive Summary</md-button>
    <md-button class="section">General Description</md-button>
-   <ui-view></ui-view>
+   <ui-view flex="100"></ui-view>
    <md-button class="section">Products and Services</md-button>
    <md-button class="section">Marketing Plan</md-button>
    <md-button class="section">Operational Plan</md-button>

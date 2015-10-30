@@ -1,34 +1,55 @@
-<div>
+<div> <!-- ng-controller="GlobalController as glob" -->
 Before you sign up, let's make sure you understand how this works.
 
 Got it?
-		<md-content ng-click="nav.overlayRegister()"></md-content>
 				<h1>Let's get started!</h1>
 				<hr>
-				<form name="registerUser" ng-submit="nav.registerUser()">
+				<form name="signUp" ng-submit="glob.signUp()">
+						<h3>Login Information</h3>
 						<md-input-container>
 							<label>User Name</label>
-							<input required name="username" ng-model="nav.user.username">
+							<input required name="username" placeholder=" " ng-model="glob.user.username">
 						</md-input-container>
 						<md-input-container>
 							<label>Email Address</label>
-							<input required type="email" name="username" ng-model="nav.user.email">
+							<input required type="email" name="username" ng-model="glob.user.email">
 						</md-input-container>
 						<md-input-container>
 							<label>Password</label>
-							<input required type="password" name="userPassword" ng-model="nav.user.password" minlength="5" />
+							<input required type="password" name="userPassword" placeholder="Must be at least 7 characters." ng-model="glob.user.password" minlength="7" />
 						</md-input-container>
 						<md-input-container>
 							<label>Confirm Password</label>
-							<input required type="password" name="userPassword" ng-model="nav.user.confirmPassword" minlength="5" />
+							<input required type="password" name="userPassword" placeholder="Same as above." ng-model="glob.user.confirmPassword" minlength="7" />
 						</md-input-container>
-							<span ng-if="nav.errReg">{{nav.errReg}}<br/></span>
-							<div ng-show="!(nav.user.password === nav.user.confirmPassword)">Your passwords must match.</div>
-							<md-button type="submit" ng-disabled="!nav.user.username || !nav.user.email || !nav.user.password || !(nav.user.password === nav.user.confirmPassword)">Register</md-button>
-						<hr>
-							<h6>Already joined our community?</h6>
-							<md-button type="button" ng-click="nav.overlayRegister(); nav.overlayLogin()">Login</md-button>
-
+							<span ng-if="glob.errReg" class="err-msg">{{glob.errReg}}<br/></span>
+							<div ng-show="!(glob.user.password === glob.user.confirmPassword)" class="err-msg">Your passwords must match.</div>
+							<h3>Profile Information</h3>
+							<h6>Let fellow Ascenters know who you are! Link your work and give them way to reach you.</h6>
+							<md-input-container>
+								<label>Name - Artist Name, chosen Name, gov't Name, whatever. How do you want people to know you?</label>
+								<input name="blurb" ng-model="glob.user.name">
+							</md-input-container>
+							<md-input-container>
+								<label>Profile Photos</label>
+								<input name="profilePic" type="url" ng-model="glob.user.profilePic">
+							</md-input-container>
+							<md-input-container>
+								<label>Short Blurb About You</label>
+								<input name="blurb" ng-model="glob.user.blurb">
+							</md-input-container>
+							<md-input-container>
+								<label>Website</label>
+								<input name="website" type="url" ng-model="glob.user.website">
+							</md-input-container>
+							<md-input-container>
+								<label>Contact Email Address</label>
+								<input type="email" name="email" ng-model="glob.user.contactEmail">
+							</md-input-container>
+							<md-input-container>
+								<input type="checkbox" ng-click="glob.user.contactEmail = glob.user.email">Same as above?
+							</md-input-container>
+							<md-button type="submit" ng-disabled="!glob.user.username || !glob.user.email || !glob.user.password || !(glob.user.password === glob.user.confirmPassword)">Sign Up</md-button>
 				</form>
 
 
