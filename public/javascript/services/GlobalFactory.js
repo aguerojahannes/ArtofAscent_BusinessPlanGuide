@@ -6,6 +6,16 @@
 	function GlobalFactory($http, $q) {
 		var o = {};
 		o.status = {};
+		o.sections = [
+			{section: "Executive Summary", state: "ExecutiveSummary"},
+			{section: "General Description", state: "GeneralDescription"},
+			{section: "Products & Services", state: "Products_Services"},
+			{section: "Marketing Plan", state: "MarketingPlan"},
+			{section: "Operational Plan", state: "OperationalPlan"},
+			{section: "Management & Organization", state: "Mgmt_Org"},
+			{section: "Financial Plan", state: "FinancialPlan"},
+			{section: "Appendices", state: "Appendices"}
+		];
 
 
 		o.signUp = function(user){

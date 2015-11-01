@@ -1,7 +1,7 @@
-<div ng-controller="BrainstormController as bs" layout="row"  flex="100">
+<div ng-controller="BrainstormController as bs" layout="row"  flex>
    <div layout="row" layout-padding style="height: 100%">
-      <a ng-click="bs.toggleLeft()"><div style="background-color:yellow;height: 100%"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <img class-"arrow-right" src="/assets/right.png"/>
+      <a ng-click="bs.toggleLeft()"><div style="background-color:yellow;height: 100%"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <img class="arrow-right" src="/assets/right.png"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
    </div></a>
    <div>
       <md-sidenav class="brainstorm md-sidenav-left md-whiteframe-z2" md-component-id="left">
@@ -11,7 +11,7 @@
                                  <md-content  layout-padding style="background-color: rgb(244,67,54); color : white; height: 100%">
                                    <form ng-submit="bs.saveBS()">
                                          <md-input-container>
-                                           <textarea style="color : white; border-color: white" type="text" ng-model="bs.brainstorm.brainstorm || bs.instructions"></textarea>
+                                           <textarea style="color : white; border-color: white" type="text" ng-model="bs.instructions"></textarea> <!--bs.brainstorm.brainstorm-->
                                          </md-input-container>
                                          <md-button style="color : white" type="submit" class="md-primary">Save</md-button><br/>
                                          <!-- when saved, display toast: https://material.angularjs.org/latest/demo/toast -->
@@ -23,13 +23,45 @@
 </div>
 
 <div layout="column" flex="100">
-   <md-button class="section"  flex="100">Executive Summary</md-button>
-   <md-button class="section">General Description</md-button>
-   <ui-view flex="100"></ui-view>
-   <md-button class="section">Products and Services</md-button>
-   <md-button class="section">Marketing Plan</md-button>
-   <md-button class="section">Operational Plan</md-button>
+   <div id="sections-before" flex="100">
+      <md-grid-list
+       md-cols-gt-sm="10" md-cols-sm="3"
+       md-row-height-gt-md="3:1" md-row-height="5:3"
+       md-row-height="15px" style="margin: 1px"
+        md-gutter-gt-md="1px" md-gutter-gt-sm="1px" md-gutter="1px" >
 
+        <!-- <md-grid-tile md-colspan="2" md-rowspan="1" class="gridButton" class="plus" ui-sref="Profile" style="background-color: rgba(55,45,3,.5); color: white; text-align: center;border-radius: 4px;">
+          <span style="font-size:.7em">Completed Sections</span>
+        </md-grid-tile> -->
+
+     <md-grid-tile class="sectionsTile" ng-repeat="section in bs.sections" ui-sref="root.{{section.state}}({id: glob.status._id})" md-colspan="2" md-rowspan="1" class="gridButton" class="plus">
+        <span style="font-size:.7em">{{section.section}}</span>
+     </md-grid-tile>
+   </md-grid-list>
+</div>
+
+
+<div>
+   <ui-view flex="100"></ui-view>
+</div>
+
+
+   <div id="sections-after">
+      <md-grid-list
+       md-cols-gt-sm="10" md-cols-sm="3"
+       md-row-height-gt-md="3:1" md-row-height="5:3"
+       md-row-height="15px" style="margin: 1px"
+        md-gutter-gt-md="1px" md-gutter-gt-sm="1px" md-gutter="1px" >
+
+        <!-- <md-grid-tile md-colspan="2" md-rowspan="1" class="gridButton" class="plus" ui-sref="Profile" style="background-color: rgba(55,45,3,.5); color: white; text-align: center;border-radius: 4px;">
+          <span style="font-size:.7em">What's n Sections</span>
+        </md-grid-tile> -->
+
+     <md-grid-tile class="sectionsTile" ng-repeat="section in bs.sections" ui-sref="root.{{section.state}}({id: glob.status._id})" md-colspan="2" md-rowspan="1" class="gridButton" class="plus" style="background-color:  rgba(55,45,3,.5); color: white; text-align: center;border-radius: 4px;">
+        <img class="lock" src="/assets/lock.png"> <span style="font-size:.7em"> {{section.section}}</span>
+     </md-grid-tile>
+   </md-grid-list>
+</div>
 </div>
 
 

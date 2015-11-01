@@ -1,0 +1,8 @@
+<div ng-controller="DashboardController as vm">
+   DASHBOARD
+<div ng-repeat="section in vm.sections" flex="100">
+   <md-button ui-sref="root.{{section.state}}({id: glob.status._id})">{{section.section}}</md-button>
+</div>
+
+
+</div>

@@ -1,92 +1,107 @@
-<div layout="row">
-<div layout="column" flex="80">  <!--  ng-controller="ExecutiveSummaryController as vm" -->
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
-	<section layout="row">
-		<div class="instructions" flex="40">
-			Write 10 words that describe you.
-		</div>
-		<div class="draft" flex="60">
-			<md-input-container>
-				<textarea ng-model="vm.executiveSummary.text1"></textarea>
-			</md-input-container>
-		</div>
-	</section>
+<div layout="row" flex style="background-color:orange" ng-controller="ExecutiveSummaryController as vm">
+	TOOLBAR | SAVE DRAFT | POMODORO CLOCK
 </div>
-<div flex layout="column">
-	<div id="resources" flex>
-		<h3>Resources</h3>
+
+<div layout="row" flex="100">
+<div layout="row" layout-sm="column" flex="100">
+	<div layout="column" flex="80">  <!--  ng-controller="ExecutiveSummaryController as vm" -->
+		<section layout="row" layout-sm="column">
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
+		<section layout="row" layout-sm="column">
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
+		<section layout="row" layout-sm="column"	>
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
+		<section layout="row" layout-sm="column">
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
+		<section layout="row" layout-sm="column">
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
+		<section layout="row" layout-sm="column">
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
+		<section layout="row" layout-sm="column">
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
+		<section layout="row" layout-sm="column">
+			<div class="instructions" flex="40">
+				Write 10 words that describe you.
+			</div>
+			<div class="draft" flex="60">
+				<md-input-container>
+					<textarea ng-model="vm.executiveSummary.text1"></textarea>
+				</md-input-container>
+			</div>
+		</section>
 	</div>
-	<div id="community" flex>
-		<h3>Community</h3>
+
+	<div flex layout="column">
+		<div id="resources" flex>
+			<h3>Resources</h3>
+			<ul ng-repeat="resource in vm.resources">
+				<li>{{resource}}</li>
+			</ul>
+		</div>
+		<div id="community" flex>
+			<h3>Community</h3>
+			<ul ng-model="vm.messages = ['hey', 'heyy']" ng-repeat="message in vm.messages">
+				<li>{{message	}}</li>
+			</ul>
+		</div>
 	</div>
+
 </div>
+
 </div>

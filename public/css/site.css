@@ -1,3 +1,9 @@
+h4 {
+   margin: 0px 0px 0px 0px;
+   }
+p {
+   margin: 0px;
+}
 #top {
    background-color: #215544;
 }
@@ -10,13 +16,30 @@
 /*# {
 
 }*/
-
+.lock {
+   height: 20px;
+}
 .brainstorm {
 
 }
+.md-button {
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
+/*.md-content {
+  background-color: pink;
+  }*/
 /*not working*/
 .arrow-right, .arrow-left {
-   height: 10px;
+   height: 35px;
    /*width: 10px;*/
 }
 md-backdrop.md-opaque {
@@ -37,4 +60,15 @@ md-backdrop.md-opaque {
 }
 .err-msg {
    color: red;
+}
+#sections-before, #sections-after {
+   text-transform: capitalize;
+   font-size: 1.5em;
+   text-align: center;
+}
+.sectionsTile {
+   background-color:  rgba(55,45,3,.5);
+   color: white;
+   text-align: center;
+   border-radius: 8px;"
 }

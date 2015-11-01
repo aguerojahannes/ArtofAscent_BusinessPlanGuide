@@ -3,7 +3,7 @@
 	angular.module('app', ['ui.router', 'ngMaterial'])
 	.config(Config);
 	Config.$inject = ['$stateProvider', '$urlRouterProvider'];
-	function Config($stateProvider, $urlRouterProvider) {
+	function Config($stateProvider, $urlRouterProvider, $httpProvider) {
 		$stateProvider.state('Home',{
 			url: '/',
 			templateUrl: 'views/home.html'
@@ -17,9 +17,9 @@
 			url: '',
 			templateUrl: 'views/brainstorm.html',
 			abstract: true
-		}).state('root.Create',{
-			url: '/createYourPlan/:id',
-			templateUrl: 'views/createYourPlan.html'
+		}).state('root.Dashboard',{
+			url: '/dashboard/:id',
+			templateUrl: 'views/dashboard.html'
 		}).state('root.ExecutiveSummary',{
 			url: '/executiveSummary/:id',
 			templateUrl: 'views/executiveSummary.html'
@@ -41,9 +41,9 @@
 		}).state('root.FinancialPlan',{
 			url: '/financialPlan/:id',
 			templateUrl: 'views/financialPlan.html'
-		}).state('root.Apendices',{
-			url: '/apendices/:id',
-			templateUrl: 'views/apendices.html'
+		}).state('root.Appendices',{
+			url: '/appendices/:id',
+			templateUrl: 'views/appendices.html'
 		}).state('Print',{
 			url: '/print/:id',
 			templateUrl: 'views/print.html'
@@ -52,5 +52,6 @@
 			templateUrl: 'views/review.html'
 		});
 		$urlRouterProvider.otherwise('/');
+		// $httpProvider.interceptors.push("AuthInterceptor"); // added this line
 	}
 })();

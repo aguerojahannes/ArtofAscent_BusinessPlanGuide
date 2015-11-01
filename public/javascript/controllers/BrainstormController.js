@@ -3,8 +3,10 @@
 	angular.module('app')
 	.controller('BrainstormController', BrainstormController);
 
-	function BrainstormController(SideFactory, $timeout, $mdSidenav, $log) {
+	function BrainstormController(GlobalFactory, SideFactory, $timeout, $mdSidenav, $log) {
 		var bs = this;
+		bs.sections = GlobalFactory.sections;
+
 		bs.instructions = "Write down all your ideas here. Just because you're being productive doesn't mean ideas have to slip by the wayside. \n \n \n";
 		// bs.brainstorm.brainstorm = [];
 

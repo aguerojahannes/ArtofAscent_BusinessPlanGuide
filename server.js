@@ -10,17 +10,19 @@ var port = process.env.PORT || 3000;
 var passport = require('passport');
 var mongoose = require('mongoose');
 require("./models/User");
+require("./models/Products_Services");
 // require("./models/TopicModel");
 // require("./models/CommentModel");
 require("./config/passport");
 
-var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
-console.log(database);
-mongoose.connect(database, function(err){
-	console.log("Connect");
-	if(err) return console.log('error connecting to %s', database);
-	console.log('connected to %s', database);
-});
+// var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
+// console.log(database);
+// mongoose.connect(database, function(err){
+// 	console.log("Connect");
+// 	if(err) return console.log('error connecting to %s', database);
+// 	console.log('connected to %s', database);
+// });
+mongoose.connect("mongodb://localhost/bizplan");
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client
@@ -40,8 +42,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 
 var userRoutes = require('./routes/userRoutes');
-// var topicRoutes = require('./routes/topicRoutes');
-// var commentRoutes = require('./routes/commentRoutes');
+var productsServicesRoutes = require('./routes/products_servicesRoutes');
 
 
 //on homepage load, render the index page
@@ -49,12 +50,10 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
-// Use User Routes
+// Use Routes
 app.use("/user", userRoutes);
-// Use Topic Routes
-// app.use('/subforum/', topicRoutes);
-// Use Comment Routes
-// app.use('/topic/', commentRoutes);
+app.use("/products_services", productsServicesRoutes);
+
 
 // Handle Errors
 app.use(function(err, req, res, next) {

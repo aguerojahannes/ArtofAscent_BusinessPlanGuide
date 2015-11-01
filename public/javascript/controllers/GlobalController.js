@@ -5,6 +5,8 @@
 
 	function GlobalController(GlobalFactory, $timeout, $mdSidenav, $log, $state) {
 		var glob = this;
+		glob.sections = GlobalFactory.sections;
+
 		glob.user = {};
 		glob.errLog = false;
 		glob.errReg = false;
@@ -18,6 +20,7 @@
 			GlobalFactory.login(glob.user).then(function(res){
 				glob.user = {};
 				nav.errLog = "";
+				$state.go("root.Dashboard");
 			}, function(err){
 				nav.errLog = err;
 			});
