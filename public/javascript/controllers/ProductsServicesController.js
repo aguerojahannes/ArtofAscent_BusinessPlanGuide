@@ -16,12 +16,20 @@
 
 // POST ALL VALUES BY USER ID
 vm.save = function(){
-	console.log("from contr");
 		BizPlanFactory.savePS(vm.ps, $stateParams.id).then(function(res){
 			console.log("back from the controller" + res.data);
 			vm.saved = res;
 		});
 	};
+
+function getPS(){
+	BizPlanFactory.getPS($stateParams.id).then(function(res){
+		console.log("from the controller. $stateParams.id: " + $stateParams.id);
+		vm.ps = res;
+		console.log(vm.ps);
+	});
+}
+getPS($stateParams.id);
 
 // PUT - EDIT DATE, TIME SAVED BY USER ID
 vm.saveUpdatedDateTime = function(){

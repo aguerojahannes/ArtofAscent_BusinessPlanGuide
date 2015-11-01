@@ -11,18 +11,19 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 require("./models/User");
 require("./models/Products_Services");
+require("./models/Brainstorm");
 // require("./models/TopicModel");
 // require("./models/CommentModel");
 require("./config/passport");
 
-// var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
-// console.log(database);
-// mongoose.connect(database, function(err){
-// 	console.log("Connect");
-// 	if(err) return console.log('error connecting to %s', database);
-// 	console.log('connected to %s', database);
-// });
-mongoose.connect("mongodb://localhost/bizplan");
+var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
+console.log(database);
+mongoose.connect(database, function(err){
+	console.log("Connect");
+	if(err) return console.log('error connecting to %s', database);
+	console.log('connected to %s', database);
+});
+// mongoose.connect("mongodb://localhost/bizplan");
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client
@@ -43,6 +44,7 @@ app.use(passport.initialize());
 
 var userRoutes = require('./routes/userRoutes');
 var productsServicesRoutes = require('./routes/products_servicesRoutes');
+var brainstormRoutes = require('./routes/brainstormRoutes');
 
 
 //on homepage load, render the index page
@@ -53,6 +55,7 @@ app.get('/', function(req, res) {
 // Use Routes
 app.use("/user", userRoutes);
 app.use("/products_services", productsServicesRoutes);
+app.use("/brainstorm", brainstormRoutes);
 
 
 // Handle Errors

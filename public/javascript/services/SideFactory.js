@@ -6,12 +6,13 @@
 	function SideFactory($http, $q) {
 		var o = {};
 
-o.saveBS = function(brainstorm){
-	var q = q.defer();
-	$http.post("/brainstorm", brainstorm).then(function(res){
-		q.resolve();
+o.saveBS = function(bsObj, userId){
+	var q = $q.defer();
+	console.log("userId: " +userId);
+	$http.post("/brainstorm/" + userId + "/bs", bsObj).then(function(res){
+		q.resolve(res);
 	});
-	q.promise();
+	return q.promise;
 };
 
 		return o;

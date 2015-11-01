@@ -52,6 +52,6 @@
 			templateUrl: 'views/review.html'
 		});
 		$urlRouterProvider.otherwise('/');
-		// $httpProvider.interceptors.push("AuthInterceptor"); // added this line
+		// $httpProvider.interceptors.push("AI");
 	}
 })();

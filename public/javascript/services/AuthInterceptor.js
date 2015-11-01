@@ -4,9 +4,9 @@
 (function() {
     'use strict';
     angular.module('app')
-        .factory('AuthInterceptor', AuthInterceptor);
+        .factory('AI', AI);
 
-    function AuthInterceptor($window) { // NOTE: We only need to inject $window
+    function AI($window) { // NOTE: We only need to inject $window
         var o = { // takes a function with config in the parameters
             request: function(config) {
                 if ($window.localStorage.getItem("token")) { // if token exists in localStorage

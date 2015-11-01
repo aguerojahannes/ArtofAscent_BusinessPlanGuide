@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var ProductsServices = mongoose.model('ProductsServices');
+var Brainstorm = mongoose.model('Brainstorm');
 var passport = require('passport');
 // using Authorization now:
 var jwt = require("express-jwt");
@@ -10,34 +10,29 @@ var auth = jwt({
    secret: "ThisisASecretCode"
 });
 
-
-// ID OF ProductsServices
-// router.param("id", function(req, res, next, id){
-//    ProductsServices.findOne({_id: id}, function(err, result){
-//       if (err) return next(err);
-//       if(!result) return next("Could not find post with an id of: " + id);
-//       req.post = result;
-//       next();
-//    });
-// });
-
 // POST ALL VALUES  - http POST psObj to /products_services/userId/ps
-router.post("/:id/ps", function(req, res, next){
-  var ps = new ProductsServices(req.body);
-    ps.user = req.params.id;
-    ps.save(function(err, result) {
+router.post("/:id/bs", function(req, res, next){
+  var bs = new Brainstorm(req.body);
+  console.log("req.body: " + req.body);
+  console.log("req.params.id: " + req.params.id);
+    bs.user = req.params.id;
+    console.log("bs.user: " + bs.user);
+
+    bs.save(function(err, result) {
       if(err) return next(err);
       res.send(result);
+      console.log("result: " + result);
+
     });
 });
 
 // GET ALL VALUES - SEARCH BY PS.USER
-router.get("/:id/ps", function(req, res, next){
-   ProductsServices.find({user: req.params.id}).exec(function(err,result){
-      if(err) return next(err);
-      res.send(result);
-   });
-});
+// router.get("/:id/ps", function(req, res, next){
+//    ProductsServices.find({user: req.params.id}).exec(function(err,result){
+//       if(err) return next(err);
+//       res.send(result);
+//    });
+// });
 
 // EXAMPLE DELETE POST BY ID - http DELETE to /api/post
 // router.delete("/:id", function(req, res, next){
