@@ -15,33 +15,26 @@
 		vm.ps.images = [""];
 
 // POST ALL VALUES BY USER ID
-vm.save = function(){
+vm.savePS = function(){
 		BizPlanFactory.savePS(vm.ps, $stateParams.id).then(function(res){
-			console.log("back from the controller" + res.data);
-			vm.saved = res;
 		});
 	};
 
 function getPS(){
 	BizPlanFactory.getPS($stateParams.id).then(function(res){
-		console.log("from the controller. $stateParams.id: " + $stateParams.id);
-		vm.ps = res;
-		console.log(vm.ps);
+		vm.ps = res.data;
 	});
 }
-getPS($stateParams.id);
+getPS();
 
-// PUT - EDIT DATE, TIME SAVED BY USER ID
-vm.saveUpdatedDateTime = function(){
-	BizPlanFactory.saveUpdatedDateTimePS(vm.ps).then(function(res){
-		vm.updatedDateTime = res;
+vm.editPS = function(){
+	BizPlanFactory.editPS(vm.ps, $stateParams.id).then(function(res){
 	});
 };
 
-// DELETE - CLEAR ALL VALUES  (FROM DB) AND START OVER BY USER ID
-vm.clearAll = function(){
-	BizPlanFactory.clearAllPS(vm.ps).then(function(res){
-		vm.cleared = res;
+vm.deletePS = function(){
+	BizPlanFactory.deletePS($stateParams.id).then(function(res){
+		vm.ps = {};
 	});
 };
 
@@ -49,7 +42,8 @@ vm.clearAll = function(){
 
 
 // GO TO DASHBOARD
-vm.goGashboard = function(){
+vm.goDashboard = function(){
+	// vm.savePS();
 	$state.go("root.Dashboard");
 };
 

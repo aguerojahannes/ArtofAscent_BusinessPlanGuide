@@ -1,10 +1,13 @@
 <div layout="column" flex ng-controller="ProductsServicesController as vm">
-<div layout="row" flex style="background-color:orange">
-	<form name="saveDraft" ng-submit="vm.save()">
+<div layout="row" flex style="background-color:orange" layout-align="center right">
+	<form name="saveDraft" ng-submit="vm.savePS()">
 
-	TOOLBAR | 		<md-button type="submit">SAVE DRAFT</md-button>
- | POMODORO CLOCK | 	<md-button ng-click="vm.toggleRight()">
-	 <img class="arrow-right" src="/assets/right.png"/></md-button>
+	<!-- <md-button type="submit">SAVE DRAFT</md-button> -->
+	<md-button style="color : white" type="submit" class="md-primary">Save</md-button>
+	<md-button style="color : white" type="button" ng-click="vm.editPS()" class="md-primary">Edit</md-button>
+	<md-button style="color : white" type="button" ng-click="vm.deletePS()" class="md-primary">Clear Slate</md-button>
+ 	<!-- <md-button ng-click="vm.toggleRight()">
+	 <img class="arrow-right" src="/assets/right.png"/></md-button> -->
 
 </div>
 
@@ -112,21 +115,20 @@
 	<div flex layout="column">
 		<div layout="row" layout-padding style="height: 100%">
 		<div>
-			<md-sidenav class="brainstorm md-sidenav-right md-whiteframe-z2" md-component-id="left">
+			<!-- <md-sidenav class="brainstorm md-sidenav-right md-whiteframe-z2" md-component-id="left">
 												  <md-toolbar class="md-theme-light">
-													 <h1 class="md-toolbar-tools" >Brainstorm</h1>
+													 <h1 class="md-toolbar-tools" >Resources</h1>
 												  </md-toolbar>
 												<md-content  layout-padding style="background-color: rgb(244,67,54); color : white; height: 100%">
 												  <form ng-submit="vm.saveBS()">
 														  <md-input-container>
-															 <textarea style="color : white; border-color: white" type="text" ng-model="bs.instructions"></textarea> <!--bs.brainstorm.brainstorm-->
+															 <textarea style="color : white; border-color: white" type="text" ng-model="bs.instructions"></textarea>
 														  </md-input-container>
 														  <md-button style="color : white" type="submit" class="md-primary">Save</md-button><br/>
-														  <!-- when saved, display toast: https://material.angularjs.org/latest/demo/toast -->
 													 </form>
 													 <a ng-click="vm.close()"><img class-"arrow-left" src="/assets/left.png"/></a>
 												  </md-content>
-										  </md-sidenav>
+										  </md-sidenav> -->
 	</div>
 	</div>
 

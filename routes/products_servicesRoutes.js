@@ -24,9 +24,7 @@ var auth = jwt({
 // POST ALL VALUES  - http POST psObj to /products_services/userId/ps
 router.post("/:id/ps", function(req, res, next){
   var ps = new ProductsServices(req.body);
-  console.log("req " + req);
     ps.user = req.params.id;
-    console.log("req.body: " + req.body);
     ps.save(function(err, result) {
       if(err) return next(err);
       res.send(result);
@@ -35,20 +33,26 @@ router.post("/:id/ps", function(req, res, next){
 
 // GET ALL VALUES - SEARCH BY PS.USER
 router.get("/:id/ps", function(req, res, next){
-   ProductsServices.find({user: req.params.id}).exec(function(err,result){
+   ProductsServices.findOne({user: req.params.id}, function(err,result){
+      if(err) return next(err);
+      res.send(result);
+   });
+});
+ // DELETE
+router.delete("/:id/ps", function(req, res, next){
+   ProductsServices.remove({user: req.params.id}, function(err, result){
       if(err) return next(err);
       res.send(result);
    });
 });
 
-// EXAMPLE DELETE POST BY ID - http DELETE to /api/post
-// router.delete("/:id", function(req, res, next){
-//    Post.remove({_id: req.params.id}, function(err, result){ anywhere where it's true in the database that _id is the same as what we're sending in from factory, in this case we sent in the id as a parameter ("/api/post/" + id) on the request.
-//       if(err) return next(err);
-//       console.log(result);
-//       res.send();
-//    });
-// });
+// EDIT
+router.put("/:id/ps", function(req, res, next){
+   ProductsServices.update({user: req.params.id}, req.body, function(err, result){
+      if(err) return next(err);
+      res.send(result);
+   });
+});
 
 module.exports = router;
 

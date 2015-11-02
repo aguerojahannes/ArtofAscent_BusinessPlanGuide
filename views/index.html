@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
-	<title>Art of Ascent | Business Plan Creator</title>
+	<title>Art of Ascent | Business Plan Guide</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
@@ -10,7 +10,11 @@
 
 <div id="site" layout="column"  flex="100">
 	<div id="top" layout="row"  flex="100">
-		<header id="logo-container" flex><a ui-sref="Home"><img id="logo" src="/assets/logo.png"></a></header>
+		<header id="logo-container" flex>
+			<a ui-sref="Home">
+			<img id="logo" src="/assets/artofascent-w.png">	
+		</a>
+		</header>
 		<nav id="nav" layout="column">
 			<div layout="row">
 		<div layout="row" ng-show="!glob.status.username">
@@ -37,7 +41,7 @@
 		</nav>
 	</div>
 	<div id="main" layout="row" flex="100" style="height:100%">
-		<ui-view  style="background-color:rgb(156, 31, 255);height:100%" flex="100"></ui-view> <!-- how can i get the view to stretch 100$ vertically even when content is small-->
+		<ui-view  id="main-uiview" style="height:100%" flex="100"></ui-view> <!-- how can i get the view to stretch 100$ vertically even when content is small-->
 	</div>
 </div>
 	<!-- Ext Libs -->
