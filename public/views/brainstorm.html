@@ -1,16 +1,17 @@
-<div ng-controller="BrainstormController as bs" layout="row"  flex>
-   <div layout="row" layout-padding style="height: 100%">
-      <a ng-click="bs.toggleLeft()"><div style="background-color:yellow;height: 100%"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <img class="arrow-right" src="/assets/right.png"/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <div id="root" ng-controller="BrainstormController as bs" layout="row"  layout-fill flex style="height:100%">
+
+   <div layout="row" style="height: 100%">
+      <a ng-click="bs.toggleLeft()"><div class="brainstorm" style="height: 100%"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <img class="arrow-right" src="/assets/right.png"/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
    </div></a>
    <div>
-      <md-sidenav class="brainstorm md-sidenav-left md-whiteframe-z2" md-component-id="left">
+      <md-sidenav id="brainstorm-side" class="brainstorm md-sidenav-left md-whiteframe-z2" md-component-id="left">
                                    <md-toolbar class="md-theme-light">
-                                     <h1 class="md-toolbar-tools" >Brainstorm</h1>
+                                     <h1 class="md-toolbar-tools">Brainstorm</h1>
                                    </md-toolbar>
-                                 <md-content  layout-padding style="background-color: rgb(244,67,54); height: 100%">
+                                 <md-content layout-padding class="brainstorm" style="height: 100%">
                                    <form ng-submit="bs.saveBS()">
-                                     <textarea id="textarea-bs" style="background-color: rgb(244,67,54); border-color: white" type="text" ng-model="bs.brainstorm.brainstorm" placeholder="{{bs.instructions}}"></textarea>
+                                     <textarea id="textarea-bs" type="text" ng-model="bs.brainstorm.brainstorm" placeholder="{{bs.instructions}}"></textarea>
                                          <md-button style="color : white" type="submit" class="md-primary">Save</md-button>
                                          <md-button style="color : white" type="button" ng-click="bs.editBS()" class="md-primary">Edit</md-button>
                                          <md-button style="color : white" type="button" ng-click="bs.deleteBS()" class="md-primary">Clear Slate</md-button>
@@ -22,45 +23,24 @@
 </div>
 </div>
 
-<div layout="column" flex="100">
-   <div id="sections-before" flex="100">
-      <md-grid-list
-       md-cols-gt-sm="10" md-cols-sm="3"
-       md-row-height-gt-md="3:1" md-row-height="5:3"
-       md-row-height="15px" style="margin: 1px"
-        md-gutter-gt-md="1px" md-gutter-gt-sm="1px" md-gutter="1px" >
-
-        <!-- <md-grid-tile md-colspan="2" md-rowspan="1" class="gridButton" class="plus" ui-sref="Profile" style="background-color: rgba(55,45,3,.5); color: white; text-align: center;border-radius: 4px;">
-          <span style="font-size:.7em">Completed Sections</span>
-        </md-grid-tile> -->
-
-     <md-grid-tile class="sectionsTile" ng-repeat="section in bs.sections" ui-sref="root.{{section.state}}({id: glob.status._id})" md-colspan="2" md-rowspan="1" class="gridButton" class="plus">
-        <span style="font-size:.7em">{{section.section}}</span>
-     </md-grid-tile>
-   </md-grid-list>
-</div>
-
+<div layout="column" flex>
 
 <div>
    <ui-view flex="100"></ui-view>
 </div>
 
 
-   <div id="sections-after">
-      <md-grid-list
-       md-cols-gt-sm="10" md-cols-sm="3"
-       md-row-height-gt-md="3:1" md-row-height="5:3"
-       md-row-height="15px" style="margin: 1px"
-        md-gutter-gt-md="1px" md-gutter-gt-sm="1px" md-gutter="1px" >
+<div id="sections">
+   <md-grid-list
+    md-cols-gt-sm="8" md-cols-sm="8"
+    md-row-height-gt-md="3:1" md-row-height="5:3"
+    md-row-height="15px" style="margin: 1px"
+     md-gutter-gt-md="1px" md-gutter-gt-sm="1px" md-gutter="1px" >
 
-        <!-- <md-grid-tile md-colspan="2" md-rowspan="1" class="gridButton" class="plus" ui-sref="Profile" style="background-color: rgba(55,45,3,.5); color: white; text-align: center;border-radius: 4px;">
-          <span style="font-size:.7em">What's n Sections</span>
-        </md-grid-tile> -->
-
-     <md-grid-tile class="sectionsTile" ng-repeat="section in bs.sections" ui-sref="root.{{section.state}}({id: glob.status._id})" md-colspan="2" md-rowspan="1" class="gridButton" class="plus" style="background-color:  rgba(55,45,3,.5); color: white; text-align: center;border-radius: 4px;">
-        <img class="lock" src="/assets/lock.png"> <span style="font-size:.7em"> {{section.section}}</span>
-     </md-grid-tile>
-   </md-grid-list>
+  <md-grid-tile class="sectionsTile" ng-repeat="section in bs.sections" ui-sref="root.{{section.state}}({id: glob.status._id})" md-colspan="2" md-rowspan="1" class="gridButton" class="plus">
+     <span>{{section.section}}</span>
+  </md-grid-tile>
+</md-grid-list>
 </div>
 </div>
 

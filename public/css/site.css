@@ -1,41 +1,21 @@
+/* FULL SITE */
 body {
    color: white;
-   /*background-image: url("/assets/static1.jpeg");*/
-}
-#main-uiview {
-   background-color: rgb(51, 51, 255);
-   background-color: black;
-   /*background-image: url("/assets/texturebg.jpeg");*/
-
-}
-h4 {
-   margin: 0px 0px 0px 0px;
-   }
-p {
-   margin: 0px;
+   font-family: "Century Gothic";
 }
 #top {
-   background-color: #215544;
-   background-image: url("/assets/static2.jpg");
+   /*background-color: #215544;*/
+   /*background-image: url("/assets/static2.jpg");*/
 }
 #logo {
    height: 60px;
    color: white;
 }
-#title.a:active {
-   color: white;
-}
-#nav {
-
-}
-/*# {
-
-}*/
-.lock {
-   height: 20px;
-}
-.brainstorm {
-
+.btn-nav {
+   margin-top: 1px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
 }
 .md-button {
   padding: 0 6px 0 6px;
@@ -50,17 +30,51 @@ p {
   outline: none;
   background-color: purple;
 }
-/*.md-content {
-  background-color: pink;
-  }*/
+/* APP UI VIEW */
+#main-uiview {
+   background-color: rgb(51, 51, 255);
+   background-color: grey  ;
+   /*background-image: url("/assets/texturebg.jpeg");*/
+}
+#root {
+   height:100vh;
+}
+
+/* BRAINSTORM */
+.brainstorm {
+   background-image: url("/assets/print-brain50x70cm.jpg");
+}
+#brainstorm-side {
+   background-image: url("/assets/print-brain50x70cm.jpg");
+}
+#textarea-bs {
+   color: black;
+   background-color: grey;
+   width: 98%;
+   height: 300px;
+}
 /*not working*/
 .arrow-right, .arrow-left {
    height: 35px;
    /*width: 10px;*/
 }
-md-backdrop.md-opaque {
-    background-color: green;
+.md-toolbar-tools {
+   background-color: black;
+   font-weight: bolder;
 }
+.err-msg {
+   color: purple;
+}
+md-backdrop.md-opaque {
+    background-color: blue;
+}
+
+/* SECTIONS on DASHBOARD */
+#all-sections {
+   padding-left: 30px;
+}
+
+/* SECTIONS */
 .section {
    margin-top: 1px;
     margin-bottom: 1px;
@@ -68,29 +82,73 @@ md-backdrop.md-opaque {
     margin-left: 1px;
     width: 100%;
 }
-.btn-nav {
-   margin-top: 1px;
-    margin-bottom: 1px;
-    margin-right: 1px;
-    margin-left: 1px;
-}
-.err-msg {
-   color: red;
-}
-#sections-before, #sections-after {
+#sections {
    text-transform: capitalize;
-   font-size: 1.5em;
+   font-size:.9em;
    text-align: center;
 }
 .sectionsTile {
-   background-color:  rgba(55,45,3,.5);
+   background-color:  rgba(0,0,51,.5);
    /*background-image: url("/assets/texturebg3.jpeg");*/
    color: white;
    text-align: center;
-   border-radius: 8px;"
+   border-radius: 6px;
 }
-#textarea-bs {
-   color: black;
-   width: 90%;
-   height: 300px;
+
+/* DRAFT UI VIEW */
+
+/* TOOLBAR */
+#toolbar {
+   background-color: black;
+   text-align: right;
+   padding-left: 13px;
+   padding-right: 13px;
+}
+#section-title {
+   font-size: 1.5em;
+   font-weight: bolder;
+   text-transform: uppercase;
+   text-align: left;
+   vertical-align: middle;
+   color: white;
+}
+.toolbar-button {
+   color: white;
+   background-color: #440044;
+}
+.sidebar-rc {
+   height:30px;
+   vertical-align: middle;
+}
+/* DRAFT */
+#section-overview {
+      margin-bottom: 40px;
+      font-weight: bolder;
+}
+   #draft {
+padding: 20px;
+}
+h4 {
+   margin: 0px 0px 0px 0px;
+   }
+p {
+   margin: 0px;
+}
+ /* RESOURCES & COMMUNITY */
+ rc {
+    background-image: url("/assets/print-brain-50x70cm.jpg");
+}
+ ul.rc {
+    margin: 0px;
+    padding-bottom: 5px;
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+    margin: 0px;
+    background-color: grey;
+
 }

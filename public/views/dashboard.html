@@ -1,8 +1,14 @@
-<div ng-controller="DashboardController as vm">
-   DASHBOARD
-<div ng-repeat="section in vm.sections" flex="100">
-   <md-button ui-sref="root.{{section.state}}({id: glob.status._id})">{{section.section}}</md-button>
-</div>
+<div ng-controller="DashboardController as vm" layout="column">
+   <div id="toolbar" layout="row" flex="100">
+		<span id="section-title" flex="40">Dashboard</span>
+	</div>
 
 
+   <div id="all-sections" ng-repeat="section in vm.sections" flex="100">
+      <md-button ui-sref="root.{{section.state}}({id: glob.status._id})">{{section.section}}</md-button>
+   </div>
+
+   <!-- <div>
+      Writing your business plan may seem daunting. Don't let it be!
+   </div> -->
 </div>

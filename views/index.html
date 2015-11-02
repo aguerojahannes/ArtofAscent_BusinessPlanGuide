@@ -6,19 +6,19 @@
 	<link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
-<body ng-controller="GlobalController as glob">
+<body ng-controller="GlobalController as glob" layout-fill>
 
 <div id="site" layout="column"  flex="100">
-	<div id="top" layout="row"  flex="100">
+	<div id="top" layout="row"  flex="100" layout-fill layout-align="center center">
 		<header id="logo-container" flex>
 			<a ui-sref="Home">
-			<img id="logo" src="/assets/artofascent-w.png">	
+			<img id="logo" src="/assets/artofascent-b.png">
 		</a>
 		</header>
 		<nav id="nav" layout="column">
 			<div layout="row">
 		<div layout="row" ng-show="!glob.status.username">
-			<form ng-submit="glob.login({id: glob.status._id})"  layout="row">
+			<form ng-submit="glob.login()" layout="row">
 				<md-content layout="row">
 						<input required name="username"  placeholder="username" ng-model="glob.user.username"/>
 						<input required type="password" placeholder="password" ng-model="glob.user.password" minlength="5" />
@@ -40,8 +40,11 @@
 			</div>
 		</nav>
 	</div>
-	<div id="main" layout="row" flex="100" style="height:100%">
-		<ui-view  id="main-uiview" style="height:100%" flex="100"></ui-view> <!-- how can i get the view to stretch 100$ vertically even when content is small-->
+
+	<div id="main" layout="row" flex="100" style="height:100%" layout-fill>
+		   <md-content flex layout-fill>
+		<ui-view  id="main-uiview" style="height:100%" flex="100" layout-fill></ui-view> <!-- how can i get the view to stretch 100$ vertically even when content is small-->
+	</md-content>
 	</div>
 </div>
 	<!-- Ext Libs -->

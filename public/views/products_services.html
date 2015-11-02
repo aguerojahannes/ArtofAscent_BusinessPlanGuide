@@ -1,139 +1,152 @@
 <div layout="column" flex ng-controller="ProductsServicesController as vm">
-<div layout="row" flex style="background-color:orange" layout-align="center right">
-	<form name="saveDraft" ng-submit="vm.savePS()">
 
-	<!-- <md-button type="submit">SAVE DRAFT</md-button> -->
-	<md-button style="color : white" type="submit" class="md-primary">Save</md-button>
-	<md-button style="color : white" type="button" ng-click="vm.editPS()" class="md-primary">Edit</md-button>
-	<md-button style="color : white" type="button" ng-click="vm.deletePS()" class="md-primary">Clear Slate</md-button>
- 	<!-- <md-button ng-click="vm.toggleRight()">
-	 <img class="arrow-right" src="/assets/right.png"/></md-button> -->
+	<div id="toolbar" layout="row" flex="100">
+		<span id="section-title" flex="40">Products and Services</span>
+		<form name="saveDraft" ng-submit="vm.savePS()"  flex="60">
+			<span id="toolbar-buttons">
+			<md-button class="toolbar-button" type="submit"  ng-show="!vm.ps._id">Save</md-button>
+			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.editPS()">Edit</md-button>
+			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.deletePS()">Clear Slate</md-button>
 
-</div>
+		 </span>
+		 <img class="arrow-right sidebar-rc" src="/assets/right-inv.png" ng-click="vm.toggleRight()">
 
-<div layout="row" flex="100">
-<div layout="row" layout-sm="column" flex="100">
-	<div layout="column" flex="80">
+	</div>
 
-		<section layout="row" layout-sm="column">
-			<div class="instructions" flex="40">
-				<h4>Overview</h4>
-				<p>Write information for this section</p>
-			</div>
-			<div class="draft" flex="60">
+	<div id="draft" layout="row" flex="100">
+	<div layout="row" layout-sm="column" flex="100">
+		<div layout="column" flex="100">
+			<section id="section-overview" layout="row">
+					<p>Products and services are the part of your business that you, as an artist, should feel most excited about. These are the ways you share your creativity with the world. This section should be the most fun! Think about all the things you offer. Do you mostly have physical art that you sell? Is your gift your time and energy? Maybe you do a little bit of both, like sell prints but do workshops monthly. </p>
+			</section>
+			<section layout="row" layout-sm="column">
+				<div class="instructions" flex="40">
+					<h4>Overview</h4>
+					<p>Give us a general idea of what you're offering. Are they products or services?</p>
+				</div>
+				<div class="draft" flex="60">
+					<md-input-container>
+						<textarea ng-model="vm.ps.overview"></textarea>
+					</md-input-container>
+				</div>
+			</section>
+			<section layout="row" layout-sm="column">
+				<div class="instructions" flex="40">
+					<h4>Importance</h4>
+					<p>Write information for this section</p>
+				</div>
+				<div class="draft" flex="60">
+					<md-input-container>
+						<textarea ng-model="vm.ps.importance"></textarea>
+					</md-input-container>
+				</div>
+			</section>
+			<section layout="row" layout-sm="column">
+				<div class="instructions" flex="40">
+					<h4>Products</h4>
+					<p>Write information for this section</p>
+				</div>
+				<div class="draft" flex="60">
+					<md-button type="button" ng-click="vm.ps.products.push({});">Add Product</md-button>
+	    <br>
+	    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
+	      <div ng-repeat="product in vm.ps.products">
 				<md-input-container>
-					<textarea ng-model="vm.ps.overview"></textarea>
+					<input placeholder="Product Name" ng-model="vm.ps.products[$index].productName">
 				</md-input-container>
-			</div>
-		</section>
-		<section layout="row" layout-sm="column">
-			<div class="instructions" flex="40">
-				<h4>Importance</h4>
-				<p>Write information for this section</p>
-			</div>
-			<div class="draft" flex="60">
 				<md-input-container>
-					<textarea ng-model="vm.ps.importance"></textarea>
+					<input placeholder="Product Description" ng-model="vm.ps.products[$index].productDescription">
 				</md-input-container>
+				<md-button ng-click="vm.ps.products.splice($index, 1)">X</md-button>
 			</div>
-		</section>
-		<section layout="row" layout-sm="column">
-			<div class="instructions" flex="40">
-				<h4>Products</h4>
-				<p>Write information for this section</p>
-			</div>
-			<div class="draft" flex="60">
-				<md-button type="button" ng-click="vm.ps.products.push({});">Add Product</md-button>
-    <br>
-    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
-      <div ng-repeat="product in vm.ps.products">
-			<md-input-container>
-				<input placeholder="Product Name" ng-model="vm.ps.products[$index].productName">
-			</md-input-container>
-			<md-input-container>
-				<input placeholder="Product Description" ng-model="vm.ps.products[$index].productDescription">
-			</md-input-container>
-			<md-button ng-click="vm.ps.products.splice($index, 1)">X</md-button>
-		</div>
-    </ul>
-			</div>
-		</section>
-		<section layout="row" layout-sm="column">
-			<div class="instructions" flex="40">
-				<h4>Services</h4>
-				<p>Write information for this section</p>
-			</div>
-			<div class="draft" flex="60">
-				<md-button type="button" ng-click="vm.ps.services.push({});">Add Service</md-button>
-    <br>
-    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
-      <div ng-repeat="service in vm.ps.services">
-			<md-input-container>
-				<input placeholder="Service Name" ng-model="vm.ps.services[$index].serviceName">
-			</md-input-container>
-			<md-input-container>
-				<input placeholder="Service Description" ng-model="vm.ps.services[$index].serviceDescription">
-			</md-input-container>
-			<md-button ng-click="vm.ps.services.splice($index, 1)">X</md-button>
-		</div>
-    </ul>
-			</div>
-		</section>
-		<section layout="row" layout-sm="column">
-			<div class="instructions" flex="40">
-				<h4>Images</h4>
-				<p>Write information for this section</p>
-			</div>
-			<div class="draft" flex="60">
-				<md-button type="button" ng-click="vm.ps.images.push();">Add Image</md-button>
-    <br>
-    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
-      <div ng-repeat="image in vm.ps.images">
-			<md-input-container>
-				<input placeholder="Image URL" ng-model="vm.ps.images[$index]">
-			</md-input-container>
-			<md-button ng-click="vm.ps.images.splice($index, 1)">X</md-button>
-		</div>
-    </ul>
-			</div>
-		</section>
-		<section layout="row" layout-sm="column">
-			<div class="instructions" flex="40">
-				<h4>Conclusion</h4>
-				<p>Write information for this section</p>
-			</div>
-			<div class="draft" flex="60">
+	    </ul>
+				</div>
+			</section>
+			<section layout="row" layout-sm="column">
+				<div class="instructions" flex="40">
+					<h4>Services</h4>
+					<p>Write information for this section</p>
+				</div>
+				<div class="draft" flex="60">
+					<md-button type="button" ng-click="vm.ps.services.push({});">Add Service</md-button>
+	    <br>
+	    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
+	      <div ng-repeat="service in vm.ps.services">
 				<md-input-container>
-					<textarea ng-model="vm.ps.conclusion"></textarea>
+					<input placeholder="Service Name" ng-model="vm.ps.services[$index].serviceName">
 				</md-input-container>
+				<md-input-container>
+					<input placeholder="Service Description" ng-model="vm.ps.services[$index].serviceDescription">
+				</md-input-container>
+				<md-button ng-click="vm.ps.services.splice($index, 1)">X</md-button>
 			</div>
-		</section>
-	</form>
+	    </ul>
+				</div>
+			</section>
+			<section layout="row" layout-sm="column">
+				<div class="instructions" flex="40">
+					<h4>Images</h4>
+					<p>Write information for this section</p>
+				</div>
+				<div class="draft" flex="60">
+					<md-button type="button" ng-click="vm.ps.images.push();">Add Image</md-button>
+	    <br>
+	    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
+	      <div ng-repeat="image in vm.ps.images">
+				<md-input-container>
+					<input placeholder="Image URL" ng-model="vm.ps.images[$index]">
+				</md-input-container>
+				<md-button ng-click="vm.ps.images.splice($index, 1)">X</md-button>
+			</div>
+	    </ul>
+				</div>
+			</section>
+			<section layout="row" layout-sm="column">
+				<div class="instructions" flex="40">
+					<h4>Conclusion</h4>
+					<p>Write information for this section</p>
+				</div>
+				<div class="draft" flex="60">
+					<md-input-container>
+						<textarea ng-model="vm.ps.conclusion"></textarea>
+					</md-input-container>
+				</div>
+			</section>
+		</form>
+
+		</div>
+
+		<div flex layout="column">
+			<div layout="row" layout-padding style="height: 100%">
+			<div>
+				<md-sidenav class="rc md-sidenav-right md-whiteframe-z2" md-component-id="right">
+													  <md-toolbar class="md-theme-light">
+														 <h1 class="md-toolbar-tools" >Resources</h1>
+													  </md-toolbar>
+													<md-content  layout-padding>
+														<ul class="rc" ng-repeat="resource in vm.resources">
+															<li>{{resource}}</il>
+														</ul>
+													</md-content>
+
+														 <a ng-click="vm.close()"><img class-"arrow-left" src="/assets/right.png"/></a>
+
+													  <md-toolbar class="md-theme-light">
+														<h1 class="md-toolbar-tools" >Community</h1>
+													 </md-toolbar>
+													 <md-content  layout-padding>
+														 <ul class="rc" ng-repeat="message in vm.messages">
+															 <li>{{message}}</il>
+														 </ul>
+													 </md-content>
+
+											  </md-sidenav>
+		</div>
+		</div>
+
+		</div>
 
 	</div>
 
-	<div flex layout="column">
-		<div layout="row" layout-padding style="height: 100%">
-		<div>
-			<!-- <md-sidenav class="brainstorm md-sidenav-right md-whiteframe-z2" md-component-id="left">
-												  <md-toolbar class="md-theme-light">
-													 <h1 class="md-toolbar-tools" >Resources</h1>
-												  </md-toolbar>
-												<md-content  layout-padding style="background-color: rgb(244,67,54); color : white; height: 100%">
-												  <form ng-submit="vm.saveBS()">
-														  <md-input-container>
-															 <textarea style="color : white; border-color: white" type="text" ng-model="bs.instructions"></textarea>
-														  </md-input-container>
-														  <md-button style="color : white" type="submit" class="md-primary">Save</md-button><br/>
-													 </form>
-													 <a ng-click="vm.close()"><img class-"arrow-left" src="/assets/left.png"/></a>
-												  </md-content>
-										  </md-sidenav> -->
 	</div>
-	</div>
-
-	</div>
-
-</div>
-
 </div>
