@@ -8,12 +8,12 @@
                                    <md-toolbar class="md-theme-light">
                                      <h1 class="md-toolbar-tools" >Brainstorm</h1>
                                    </md-toolbar>
-                                 <md-content  layout-padding style="background-color: rgb(244,67,54); color : white; height: 100%">
+                                 <md-content  layout-padding style="background-color: rgb(244,67,54); height: 100%">
                                    <form ng-submit="bs.saveBS()">
-                                         <md-input-container>
-                                           <textarea style="color : white; border-color: white" type="text" ng-model="bs.brainstorm.brainstorm"></textarea> <!--bs.brainstorm.brainstorm-->
-                                         </md-input-container>
-                                         <md-button style="color : white" type="submit" class="md-primary">Save</md-button><br/>
+                                     <textarea id="textarea-bs" style="background-color: rgb(244,67,54); border-color: white" type="text" ng-model="bs.brainstorm.brainstorm" placeholder="{{bs.instructions}}"></textarea>
+                                         <md-button style="color : white" type="submit" class="md-primary">Save</md-button>
+                                         <md-button style="color : white" type="button" ng-click="bs.editBS()" class="md-primary">Edit</md-button>
+                                         <md-button style="color : white" type="button" ng-click="bs.deleteBS()" class="md-primary">Clear Slate</md-button>
                                          <!-- when saved, display toast: https://material.angularjs.org/latest/demo/toast -->
                                      </form>
                                      <a ng-click="bs.close()"><img class-"arrow-left" src="/assets/left.png"/></a>

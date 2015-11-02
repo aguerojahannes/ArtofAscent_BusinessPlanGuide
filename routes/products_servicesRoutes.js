@@ -24,7 +24,9 @@ var auth = jwt({
 // POST ALL VALUES  - http POST psObj to /products_services/userId/ps
 router.post("/:id/ps", function(req, res, next){
   var ps = new ProductsServices(req.body);
+  console.log("req " + req);
     ps.user = req.params.id;
+    console.log("req.body: " + req.body);
     ps.save(function(err, result) {
       if(err) return next(err);
       res.send(result);

@@ -14,7 +14,7 @@
 		<nav id="nav" layout="column">
 			<div layout="row">
 		<div layout="row" ng-show="!glob.status.username">
-			<form ng-submit="glob.login()"  layout="row">
+			<form ng-submit="glob.login({id: glob.status._id})"  layout="row">
 				<md-content layout="row">
 						<input required name="username"  placeholder="username" ng-model="glob.user.username"/>
 						<input required type="password" placeholder="password" ng-model="glob.user.password" minlength="5" />

@@ -12,18 +12,16 @@ var mongoose = require('mongoose');
 require("./models/User");
 require("./models/Products_Services");
 require("./models/Brainstorm");
-// require("./models/TopicModel");
-// require("./models/CommentModel");
 require("./config/passport");
 
-var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
-console.log(database);
-mongoose.connect(database, function(err){
-	console.log("Connect");
-	if(err) return console.log('error connecting to %s', database);
-	console.log('connected to %s', database);
-});
-// mongoose.connect("mongodb://localhost/bizplan");
+// var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
+// console.log(database);
+// mongoose.connect(database, function(err){
+// 	console.log("Connect");
+// 	if(err) return console.log('error connecting to %s', database);
+// 	console.log('connected to %s', database);
+// });
+mongoose.connect("mongodb://localhost/bizplan");
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client
@@ -38,9 +36,10 @@ app.set('view options', {
 });
 
 //middleware that allows for us to parse JSON and UTF-8 from the body of an HTTP request
+passport.initialize();
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(passport.initialize());
 
 var userRoutes = require('./routes/userRoutes');
 var productsServicesRoutes = require('./routes/products_servicesRoutes');
