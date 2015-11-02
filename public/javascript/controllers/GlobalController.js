@@ -34,7 +34,7 @@
 	   GlobalFactory.signUp(glob.user).then(function() {
 	      glob.user = {};
 	      glob.errReg = "";
-			$state.go("root.ExecutiveSummary");
+			$state.go("root.Dashboard", {id: glob.status._id});
 	   }, function(err) {
 	      glob.errReg = err;
 	   });

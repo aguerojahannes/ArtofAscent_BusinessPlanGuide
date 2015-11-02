@@ -1,9 +1,16 @@
 /* FULL SITE */
+html {
+   margin: 50px 0px 0px 0px;
+}
 body {
    color: white;
    font-family: "Century Gothic";
+   background-color: rgb(51, 51, 255);
+   background-color: black;
 }
 #top {
+   background-color: rgb(255,255, 255);
+
    /*background-color: #215544;*/
    /*background-image: url("/assets/static2.jpg");*/
 }
@@ -31,6 +38,7 @@ body {
   background-color: purple;
 }
 /* APP UI VIEW */
+
 #main-uiview {
    background-color: rgb(51, 51, 255);
    background-color: grey  ;
@@ -38,6 +46,8 @@ body {
 }
 #root {
    height:100vh;
+   background-image: url("/assets/print-brain50x70cm.jpg");
+
 }
 
 /* BRAINSTORM */
@@ -75,6 +85,9 @@ md-backdrop.md-opaque {
 }
 
 /* SECTIONS */
+#full-section {
+   background-color: white;
+}
 .section {
    margin-top: 1px;
     margin-bottom: 1px;
@@ -86,6 +99,7 @@ md-backdrop.md-opaque {
    text-transform: capitalize;
    font-size:.9em;
    text-align: center;
+   background-color: white;
 }
 .sectionsTile {
    background-color:  rgba(0,0,51,.5);
@@ -135,12 +149,22 @@ p {
    margin: 0px;
 }
  /* RESOURCES & COMMUNITY */
+ md-sidenav {
+    background-color: rgba(0,0,0,0);
+    background-image: url("/assets/nodes.jpg");
+
+}
  rc {
-    background-image: url("/assets/print-brain-50x70cm.jpg");
+}
+.rc-content {
+   background-color: rgba(255,255,255,0);
 }
  ul.rc {
     margin: 0px;
+    margin-top: 10px;
     padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
     display: block;
     list-style-type: disc;
     -webkit-margin-before: 1em;

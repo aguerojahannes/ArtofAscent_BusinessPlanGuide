@@ -1,16 +1,14 @@
-<div layout="column" flex ng-controller="ProductsServicesController as vm">
+<div id="full-section" layout="column" flex ng-controller="ProductsServicesController as vm">
 
 	<div id="toolbar" layout="row" flex="100">
 		<span id="section-title" flex="40">Products and Services</span>
 		<form name="saveDraft" ng-submit="vm.savePS()"  flex="60">
 			<span id="toolbar-buttons">
 			<md-button class="toolbar-button" type="submit"  ng-show="!vm.ps._id">Save</md-button>
-			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.editPS()">Edit</md-button>
+			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.editPS()">Save Edit</md-button>
 			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.deletePS()">Clear Slate</md-button>
-
 		 </span>
 		 <img class="arrow-right sidebar-rc" src="/assets/right-inv.png" ng-click="vm.toggleRight()">
-
 	</div>
 
 	<div id="draft" layout="row" flex="100">
@@ -49,7 +47,6 @@
 				<div class="draft" flex="60">
 					<md-button type="button" ng-click="vm.ps.products.push({});">Add Product</md-button>
 	    <br>
-	    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
 	      <div ng-repeat="product in vm.ps.products">
 				<md-input-container>
 					<input placeholder="Product Name" ng-model="vm.ps.products[$index].productName">
@@ -70,7 +67,6 @@
 				<div class="draft" flex="60">
 					<md-button type="button" ng-click="vm.ps.services.push({});">Add Service</md-button>
 	    <br>
-	    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
 	      <div ng-repeat="service in vm.ps.services">
 				<md-input-container>
 					<input placeholder="Service Name" ng-model="vm.ps.services[$index].serviceName">
@@ -91,7 +87,6 @@
 				<div class="draft" flex="60">
 					<md-button type="button" ng-click="vm.ps.images.push();">Add Image</md-button>
 	    <br>
-	    <!-- <span ng-show="vm.message" style="color: red">{{vm.message}}</span> -->
 	      <div ng-repeat="image in vm.ps.images">
 				<md-input-container>
 					<input placeholder="Image URL" ng-model="vm.ps.images[$index]">
@@ -116,33 +111,36 @@
 
 		</div>
 
-		<div flex layout="column">
-			<div layout="row" layout-padding style="height: 100%">
-			<div>
+		<!-- <div flex layout="column">
+			<div layout="row" layout-padding style="height: 100%"> -->
+			<div  class="rc">
 				<md-sidenav class="rc md-sidenav-right md-whiteframe-z2" md-component-id="right">
-													  <md-toolbar class="md-theme-light">
-														 <h1 class="md-toolbar-tools" >Resources</h1>
+													  <md-toolbar class="md-theme-light" layout="row">
+														  <div flex="80">
+														 <h1 class="md-toolbar-tools">Resources</h1>
+														 </div>
+														 <div class="md-toolbar-tools">
+														 <a ng-click="vm.close()"><img class="arrow-left" src="/assets/right.png"/></a>
+													 </div>
 													  </md-toolbar>
-													<md-content  layout-padding>
+													<md-content class="rc-content" layout-padding>
 														<ul class="rc" ng-repeat="resource in vm.resources">
 															<li>{{resource}}</il>
 														</ul>
 													</md-content>
 
-														 <a ng-click="vm.close()"><img class-"arrow-left" src="/assets/right.png"/></a>
-
 													  <md-toolbar class="md-theme-light">
 														<h1 class="md-toolbar-tools" >Community</h1>
 													 </md-toolbar>
-													 <md-content  layout-padding>
+													 <md-content class="rc-content" layout-padding>
 														 <ul class="rc" ng-repeat="message in vm.messages">
 															 <li>{{message}}</il>
 														 </ul>
 													 </md-content>
 
 											  </md-sidenav>
-		</div>
-		</div>
+		<!-- </div>
+		</div> -->
 
 		</div>
 
