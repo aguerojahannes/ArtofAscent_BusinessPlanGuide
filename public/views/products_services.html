@@ -5,7 +5,7 @@
 		<form name="saveDraft" ng-submit="vm.savePS()"  flex="60">
 			<span id="toolbar-buttons">
 			<md-button class="toolbar-button" type="submit"  ng-show="!vm.ps._id">Save</md-button>
-			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.editPS()">Save Edit</md-button>
+			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.editPS()">Save</md-button>
 			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.deletePS()">Clear Slate</md-button>
 		 </span>
 		 <img class="arrow-right sidebar-rc" src="/assets/right-inv.png" ng-click="vm.toggleRight()">
@@ -15,23 +15,27 @@
 	<div layout="row" layout-sm="column" flex="100">
 		<div layout="column" flex="100">
 			<section id="section-overview" layout="row">
-					<p>Products and services are the part of your business that you, as an artist, should feel most excited about. These are the ways you share your creativity with the world. This section should be the most fun! Think about all the things you offer. Do you mostly have physical art that you sell? Is your gift your time and energy? Maybe you do a little bit of both, like sell prints but do workshops monthly. </p>
+					<p>Products and services are the part of your business that you, as an artist, should feel most excited about. These are the ways you share your creativity with the world. This section should be the most fun! Think about all the things you offer. Do you mostly have physical art that you sell? Is your gift your time and energy? Maybe you do a little bit of both, like sell prints but do workshops monthly.  It may be a little strange for you to think about what you're "selling," but the reality is that you're offering something that people will pay for in a number of ways (love, skillshare and $$ cash money) and that's what's going to sustain you.</p>
 			</section>
-			<section layout="row" layout-sm="column">
+
+			<section class="each-section" layout="column">
+				<div><h4>Overview</h4></div>
+				<div layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
-					<h4>Overview</h4>
-					<p>Give us a general idea of what you're offering. Are they products or services?</p>
+					<p>Give us a general idea of what you're offering. What is your gift to the world? Are they products (tangible) or services (time-based)?</p>
 				</div>
 				<div class="draft" flex="60">
 					<md-input-container>
 						<textarea ng-model="vm.ps.overview"></textarea>
 					</md-input-container>
 				</div>
+			</div>
 			</section>
-			<section layout="row" layout-sm="column">
+
+			<section class="each-section"  layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Importance</h4>
-					<p>Write information for this section</p>
+					<p>Imagine you're at a gallery/music vanue checking out for your favorite artist. What do you tell your girlfiend how they made you feel? What  is so awesome about them that you feel they are worth supporting? Now think about what value you offer others.</p>
 				</div>
 				<div class="draft" flex="60">
 					<md-input-container>
@@ -39,10 +43,10 @@
 					</md-input-container>
 				</div>
 			</section>
-			<section layout="row" layout-sm="column">
+			<section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Products</h4>
-					<p>Write information for this section</p>
+					<p>Do you sell drawings, mixtapes, posters, chapbooks or something that I can physically touch? Or is it a digital product like an e-book, website or a video? These are products too. If you create something and can walk away from it and it stil exists, then you're creating products. List all your products with a name and a description.</p>
 				</div>
 				<div class="draft" flex="60">
 					<md-button type="button" ng-click="vm.ps.products.push({});">Add Product</md-button>
@@ -59,10 +63,10 @@
 	    </ul>
 				</div>
 			</section>
-			<section layout="row" layout-sm="column">
+			<section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Services</h4>
-					<p>Write information for this section</p>
+					<p>Performers and educators this section is for you. Do you provide a service for others where your presence (or a collaborator's presence) is required? Do you host workshops, webinars, consultations? Do you perform on stage, in clubs, parks or galleries? If so, then you've got a service. List them here.</p>
 				</div>
 				<div class="draft" flex="60">
 					<md-button type="button" ng-click="vm.ps.services.push({});">Add Service</md-button>
@@ -79,10 +83,10 @@
 	    </ul>
 				</div>
 			</section>
-			<section layout="row" layout-sm="column">
+			<!-- <section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Images</h4>
-					<p>Write information for this section</p>
+					<p>Images can help people get a better idea of what you do. It's the 1000 words you don't need to write. Phew! Include images of you at work and/or your work itself.</p>
 				</div>
 				<div class="draft" flex="60">
 					<md-button type="button" ng-click="vm.ps.images.push();">Add Image</md-button>
@@ -95,11 +99,11 @@
 			</div>
 	    </ul>
 				</div>
-			</section>
-			<section layout="row" layout-sm="column">
+			</section> -->
+			<section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Conclusion</h4>
-					<p>Write information for this section</p>
+					<p>Read over what you've written before, and wrap it before you tap that button to get outta here. Do you have any last words? Is there anything else you want to say?</p>
 				</div>
 				<div class="draft" flex="60">
 					<md-input-container>

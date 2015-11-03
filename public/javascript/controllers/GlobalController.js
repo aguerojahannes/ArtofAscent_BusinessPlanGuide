@@ -43,7 +43,7 @@
 // LOGOUT
 		glob.logout = function(){
 			GlobalFactory.logout();
-			$state.go("Review");
+			$state.go("Home");
 		};
 
 // END
