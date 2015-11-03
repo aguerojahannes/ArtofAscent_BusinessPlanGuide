@@ -9,12 +9,15 @@
 <body ng-controller="GlobalController as glob" layout-fill layout="column" layout-align="start center">
 
 <div id="site" layout="column"  style="width:85%">
-	<div id="top" layout="row"  layout-sm="column" flex="100" layout-fill layout-align="center center">
-		<header id="logo-container" flex>
+	<div id="top" layout="row"  layout-sm="column" layout-fill layout-align="center center">
+		<div>
+			<header id="logo-container" flex>
 			<a ui-sref="Home">
 			<img id="logo" src="/assets/artofascent-b.png">
 		</a>
 		</header>
+	</div>
+	<div>
 		<nav id="nav" layout="column">
 			<div layout="row">
 				<div layout="row" ng-show="!glob.status.username">
@@ -39,6 +42,7 @@
 			<md-button ui-sref="SignUp" ng-show="!glob.status.username">Sign Up</md-button>
 			</div>
 		</nav>
+	</div>
 	</div>
 
 	<div id="main" layout="row" flex="100" style="height:100%;overflow: scroll;" layout-fill>
@@ -68,5 +72,6 @@
 	<script src="/javascript/controllers/DashboardController.js"></script>
 	<script src="/javascript/controllers/ExecutiveSummaryController.js"></script>
 	<script src="/javascript/controllers/ProductsServicesController.js"></script>
+	<script src="/javascript/controllers/PomodoroController.js"></script>
 </body>
 </html>
