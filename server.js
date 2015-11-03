@@ -14,14 +14,14 @@ require("./models/Products_Services");
 require("./models/Brainstorm");
 require("./config/passport");
 
-// var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
-// console.log(database);
-// mongoose.connect(database, function(err){
-// 	console.log("Connect");
-// 	if(err) return console.log('error connecting to %s', database);
-// 	console.log('connected to %s', database);
-// });
-mongoose.connect("mongodb://localhost/bizplan");
+var database = process.env.MONGOLAB || "mongodb://localhost/FailedMongoLab";
+console.log(database);
+mongoose.connect(database, function(err){
+	console.log("Connect");
+	if(err) return console.log('error connecting to %s', database);
+	console.log('connected to %s', database);
+});
+// mongoose.connect("mongodb://localhost/bizplan");
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client

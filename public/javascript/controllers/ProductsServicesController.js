@@ -18,7 +18,7 @@
 vm.savePS = function(){
 		BizPlanFactory.savePS(vm.ps, $stateParams.id).then(function(res){
 			// vm.ps = res.data;
-			vm.getPS();
+			getPS();
 
 		});
 	};
