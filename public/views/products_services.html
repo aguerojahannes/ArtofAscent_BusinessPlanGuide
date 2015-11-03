@@ -2,10 +2,10 @@
 
 	<div id="toolbar" layout="row" flex="100">
 		<span id="section-title" flex="40">Products and Services</span>
-		<form name="saveDraft" ng-submit="vm.savePS()"  flex="60">
+		<form name="saveDraft" ng-submit="vm.savePS(); vm.showSimpleToast('Saved!');"  flex="60">
 			<span id="toolbar-buttons">
 			<md-button class="toolbar-button" type="submit"  ng-show="!vm.ps._id">Save</md-button>
-			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.editPS()">Save</md-button>
+			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.editPS(); vm.showSimpleToast('Saved!');">Save</md-button>
 			<md-button class="toolbar-button" type="button" ng-show="vm.ps._id" ng-click="vm.deletePS()">Clear Slate</md-button>
 		 </span>
 		 <img class="arrow-right sidebar-rc" src="/assets/right-inv.png" ng-click="vm.toggleRight()">

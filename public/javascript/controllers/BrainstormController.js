@@ -3,7 +3,7 @@
 	angular.module('app')
 	.controller('BrainstormController', BrainstormController);
 
-	function BrainstormController(GlobalFactory, SideFactory, $timeout, $mdSidenav, $log, $stateParams) {
+	function BrainstormController(GlobalFactory, SideFactory, $timeout, $mdSidenav, $log, $stateParams, $mdToast, $interval) {
 		var bs = this;
 		bs.sections = GlobalFactory.sections;
 		bs.brainstorm = {};
@@ -17,18 +17,16 @@
 // SAVE BS
 		bs.saveBS = function(){
 			SideFactory.saveBS(bs.brainstorm, $stateParams.id).then(function(res){
-				// bs.showSave = false;
-				// bs.saved = res;
+					bs.getBS();
 			});
 		};
+
 
 // GET BS
 // get the bs.brainstorm object that was saved in database by the user. how? search by the user property in the database schema. see where user is the user id we have. user id is the stateparam.id on the client side. so if we send then in and then search using that, were should be able to retrieve the saved obj.
 		bs.getBS = function(){
 			SideFactory.getBS($stateParams.id).then(function(res){
-					console.log("get res.data: " + res.data);
 					bs.brainstorm = res.data;
-					// bs.showSave = false;
 			});
 		};
 		bs.getBS();
@@ -38,17 +36,15 @@
 		bs.deleteBS = function(){
 			SideFactory.deleteBS($stateParams.id).then(function(res){
 				bs.brainstorm = {};
-				// bs.showSave = true;
-
 			});
 		};
 
 		bs.editBS = function(){
-			console.log(bs.brainstorm);
 			SideFactory.editBS(bs.brainstorm, $stateParams.id).then(function(res){
-				// bs.showSave = false;
 			});
 		};
+
+		$interval(bs.editBS, 60000);
 
 // BRAINSTORM CLOSE/TOGGLE
 		 bs.close = function () {
@@ -58,7 +54,14 @@
            $mdSidenav('left').toggle();
          };
 
-
+			bs.showSimpleToast = function(content) {
+			     $mdToast.show(
+			       $mdToast.simple()
+			       .content(content)
+			       .position("top left")
+			       .hideDelay(2000)
+			     );
+			   };
 
 // END
 	}

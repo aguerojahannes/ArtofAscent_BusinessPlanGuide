@@ -9,7 +9,7 @@
 <body ng-controller="GlobalController as glob" layout-fill layout="column" layout-align="start center">
 
 <div id="site" layout="column"  style="width:85%">
-	<div id="top" layout="row"  flex="100" layout-fill layout-align="center center">
+	<div id="top" layout="row"  layout-sm="column" flex="100" layout-fill layout-align="center center">
 		<header id="logo-container" flex>
 			<a ui-sref="Home">
 			<img id="logo" src="/assets/artofascent-b.png">
@@ -17,13 +17,13 @@
 		</header>
 		<nav id="nav" layout="column">
 			<div layout="row">
-		<div layout="row" ng-show="!glob.status.username">
-			<form ng-submit="glob.login()" layout="row">
-				<md-content layout="row">
+				<div layout="row" ng-show="!glob.status.username">
+					<form ng-submit="glob.login()" layout="row">
+						<md-content layout="row">
 						<input class="input-login" required name="username"  placeholder="username" ng-model="glob.user.username"/>
 						<input  class="input-login" required type="password" placeholder="password" ng-model="glob.user.password" minlength="5" />
-				</md-content>
-				<md-button type='submit' ng-show="!glob.status.username">Login</md-button>
+					</md-content>
+					<md-button type='submit' ng-show="!glob.status.username">Login</md-button>
 			</form>
 		</div>
 		<div>

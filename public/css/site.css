@@ -111,8 +111,8 @@ md-backdrop.md-opaque {
 }
 .each-section {
    margin-bottom: 20px;
-   border: 2px;
-   border-color: black;
+   /*border: 2px;
+   border-color: black;*/
 }
 
 /* DRAFT UI VIEW */

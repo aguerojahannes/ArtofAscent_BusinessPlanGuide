@@ -10,10 +10,10 @@
                                      <h1 class="md-toolbar-tools">Brainstorm</h1>
                                    </md-toolbar>
                                  <md-content layout-padding class="brainstorm" style="height: 100%">
-                                   <form ng-submit="bs.saveBS()">
+                                   <form ng-submit="bs.saveBS(); bs.showSimpleToast('Saved!');">
                                      <textarea id="textarea-bs" type="text" ng-model="bs.brainstorm.brainstorm" placeholder="{{bs.instructions}}"></textarea>
                                          <md-button style="color : white" type="submit" class="md-primary" ng-show="!bs.brainstorm._id">Save</md-button>
-                                         <md-button style="color : white" type="button" ng-click="bs.editBS()" class="md-primary" ng-show="bs.brainstorm._id">Save</md-button>
+                                         <md-button style="color : white" type="button" ng-click="bs.editBS(); 			bs.showSimpleToast('Saved!');" class="md-primary" ng-show="bs.brainstorm._id">Save</md-button>
                                          <md-button style="color : white" type="button" ng-click="bs.deleteBS()" class="md-primary" ng-show="bs.brainstorm._id">Clear Slate</md-button>
                                          <!-- when saved, display toast: https://material.angularjs.org/latest/demo/toast -->
                                      </form>

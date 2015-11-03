@@ -3,7 +3,7 @@
 	angular.module('app')
 	.controller('ProductsServicesController', ProductsServicesController);
 
-	function ProductsServicesController(GlobalFactory, BizPlanFactory, $state, $stateParams, $mdSidenav) {
+	function ProductsServicesController(GlobalFactory, BizPlanFactory, $state, $stateParams, $mdSidenav, $interval, $mdToast) {
 		var vm = this;
 		vm.status = GlobalFactory.status; // or write o.status
 		vm.ps = {};
@@ -17,7 +17,9 @@
 // POST ALL VALUES BY USER ID
 vm.savePS = function(){
 		BizPlanFactory.savePS(vm.ps, $stateParams.id).then(function(res){
-			vm.ps = res.data;
+			// vm.ps = res.data;
+			vm.getPS();
+
 		});
 	};
 
@@ -32,12 +34,23 @@ vm.editPS = function(){
 	BizPlanFactory.editPS(vm.ps, $stateParams.id).then(function(res){
 	});
 };
+$interval(vm.editPS, 60000);
+
 
 vm.deletePS = function(){
 	BizPlanFactory.deletePS($stateParams.id).then(function(res){
 		vm.ps = {};
 	});
 };
+
+vm.showSimpleToast = function(content) {
+	  $mdToast.show(
+		 $mdToast.simple()
+		 .content(content)
+		 .position("top left")
+		 .hideDelay(2000)
+	  );
+	};
 
 // GO TO DASHBOARD
 vm.goDashboard = function(){
