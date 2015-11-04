@@ -7,7 +7,7 @@ var ProductsServicesSchema = new mongoose.Schema({
   overview: String,
   importance: String,
   products: [{productName: String, productDescription: String}],
-  services: [{productName: String, productDescription: String}],
+  services: [{serviceName: String, serviceDescription: String}],
   images: Array,
   conclusion: String
 });

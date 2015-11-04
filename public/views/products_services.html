@@ -3,33 +3,6 @@
 	<div id="toolbar" layout="row" flex="100">
 		<span id="section-title" flex="40">Products and Services</span>
 
-		<!-- Pomodoro -->
-		<!-- <form ng-submit="pom.getValues()" id="formid">
-		   <label>Pick a Session Time </label>
-		         <select ng-model="sestime" id="shrid">
-		           <option ng-repeat="c in pom.shours" value="{{c}}">{{c}}</option>
-		         </select>
-		            <select ng-model="sessionM" id="sminid">
-		           <option ng-repeat="c in pom.smins" value="{{c}}">{{c}}</option>
-		         </select>
-		            <select ng-model="sessionSk" id="ssecid">
-		           <option ng-repeat="d in pom.ssec " value="{{d}}">{{d}}</option>
-		         </select>
-		            <br>
-		<label>Pick a Break Time </label>
-		         <select ng-model="breaktime" id="bhrid">
-		            <option ng-repeat="c in pom.bhours" value="{{c}}">{{c}}</option>
-		         </select>
-		         <select ng-model="breakM" id="bminid">
-		            <option ng-repeat="c in pom.bmins" value="{{c}}">{{c}}</option>
-		         </select>
-		         <select ng-model="mbreakSk" id="bsecid">
-		            <option ng-repeat="c in pom.bsec " value="{{c}}">{{c}}</option>
-		         </select>
-		            <md-button >Start</md-button>
-		            <md-button type="button" ng-click="pom.stop();">Cancel</md-button>
-		</form> -->
-
 		<form name="saveDraft" ng-submit="vm.savePS(); vm.showSimpleToast('Saved!');"  flex="60">
 			<span id="toolbar-buttons">
 			<md-button class="toolbar-button" type="submit"  ng-show="!vm.ps._id">Save</md-button>
@@ -60,9 +33,10 @@
 			</div>
 			</section>
 
-			<section class="each-section"  layout="row" layout-sm="column">
+			<section class="each-section" layout="column">
+				<div><h4>Importance</h4></div>
+				<div layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
-					<h4>Importance</h4>
 					<p>Imagine you're at a gallery/music vanue checking out for your favorite artist. What do you tell your girlfiend how they made you feel? What  is so awesome about them that you feel they are worth supporting? Now think about what value you offer others.</p>
 				</div>
 				<div class="draft" flex="60">
@@ -71,6 +45,7 @@
 					</md-input-container>
 				</div>
 			</section>
+
 			<section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Products</h4>
@@ -91,6 +66,7 @@
 	    </ul>
 				</div>
 			</section>
+
 			<section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Services</h4>
@@ -111,7 +87,8 @@
 	    </ul>
 				</div>
 			</section>
-			<!-- <section class="each-section" layout="row" layout-sm="column">
+
+			<section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Images</h4>
 					<p>Images can help people get a better idea of what you do. It's the 1000 words you don't need to write. Phew! Include images of you at work and/or your work itself.</p>
@@ -127,7 +104,8 @@
 			</div>
 	    </ul>
 				</div>
-			</section> -->
+			</section>
+
 			<section class="each-section" layout="row" layout-sm="column">
 				<div class="instructions" flex="40">
 					<h4>Conclusion</h4>
@@ -179,4 +157,34 @@
 	</div>
 
 	</div>
+</div>
+
+
+<!-- Pomodoro -->
+<div layout style="color:white;">
+<form ng-submit="pom.getValues()" id="formid">
+	<label>Session </label>
+			<md-select ng-model="sestime" id="shrid">
+			  <option ng-repeat="c in pom.shours" value="{{c}}">{{c}}</option>
+		  </md-select>
+				<select ng-model="sessionM" id="sminid">
+			  <option ng-repeat="c in pom.smins" value="{{c}}">{{c}}</option>
+			</select>
+				<select ng-model="sessionSk" id="ssecid">
+			  <option ng-repeat="d in pom.ssec " value="{{d}}">{{d}}</option>
+			</select>
+
+<label>Break </label>
+			<select ng-model="breaktime" id="bhrid">
+				<option ng-repeat="c in pom.bhours" value="{{c}}">{{c}}</option>
+			</select>
+			<select ng-model="breakM" id="bminid">
+				<option ng-repeat="c in pom.bmins" value="{{c}}">{{c}}</option>
+			</select>
+			<select ng-model="mbreakSk" id="bsecid">
+				<option ng-repeat="c in pom.bsec " value="{{c}}">{{c}}</option>
+			</select>
+				<md-button >Start</md-button>
+				<md-button type="button" ng-click="pom.stop();">Cancel</md-button>
+</form>
 </div>

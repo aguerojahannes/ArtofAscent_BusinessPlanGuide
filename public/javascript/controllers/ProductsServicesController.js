@@ -10,9 +10,9 @@
 		vm.saved = "";
 		vm.updatedDateTime = "";
 		vm.cleared = "";
-		vm.ps.products = [{productName : " ", productDescription: " "}];
-		vm.ps.services = [{serviceName : " ", serviceDescription: " "}];
-		vm.ps.images = [" "];
+		vm.ps.products = [{productName : "", productDescription: ""}];
+		vm.ps.services = [{serviceName : "", serviceDescription: ""}];
+		vm.ps.images = [""];
 
 // POST ALL VALUES BY USER ID
 vm.savePS = function(){
