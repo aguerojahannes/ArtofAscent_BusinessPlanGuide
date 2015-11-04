@@ -4,16 +4,17 @@
 	<title>Art of Ascent | Business Plan Guide</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/angular-material/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/animate.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
 <body ng-controller="GlobalController as glob" layout-fill layout="column" layout-align="start center">
 
 <div id="site" layout="column"  style="width:85%">
 	<div id="top" layout="row"  layout-sm="column" layout-fill layout-align="center center">
-		<div>
+		<div flex>
 			<header id="logo-container" flex>
 			<a ui-sref="Home">
-			<img id="logo" src="/assets/artofascent-b.png">
+			<img id="logo" class="slideInLeft" src="/assets/artofascent-b.png" flex>
 		</a>
 		</header>
 	</div>
@@ -21,7 +22,7 @@
 		<nav id="nav" layout="column">
 			<div layout="row">
 				<div layout="row" ng-show="!glob.status.username">
-					<form ng-submit="glob.login()" layout="row">
+					<form ng-submit="glob.login();" layout="row">
 						<md-content layout="row">
 						<input class="input-login" required name="username"  placeholder="username" ng-model="glob.user.username"/>
 						<input  class="input-login" required type="password" placeholder="password" ng-model="glob.user.password" minlength="5" />

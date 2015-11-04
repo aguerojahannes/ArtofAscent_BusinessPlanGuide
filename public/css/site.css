@@ -130,7 +130,9 @@ md-backdrop.md-opaque {
    text-transform: uppercase;
    text-align: left;
    vertical-align: middle;
+   align-items: baseline;
    color: white;
+   height: 55px;
 }
 .toolbar-button {
    color: white;
@@ -199,4 +201,15 @@ p {
    align-items: baseline;
    font-family: "century gothic";
    background-color: none;
+}
+
+/* RIGHT BORDER */
+#right-border {
+   background-color: black;
+   width: 35px;
+   /*background-image: url("/assets/nodes.jpg");*/
+}
+#bottom-border {
+   background-color: black;
+   height: 35px;
 }
