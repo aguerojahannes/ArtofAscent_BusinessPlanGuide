@@ -213,3 +213,17 @@ p {
    background-color: black;
    height: 35px;
 }
+
+/*.md-toast {
+   background-color: blue;
+}
+.md-toast.success {
+   background-color: blue;
+}
+.md-toast.error {
+    background-color: red;
+}
+
+.md-toast.success {
+    background-color: green;
+}*/

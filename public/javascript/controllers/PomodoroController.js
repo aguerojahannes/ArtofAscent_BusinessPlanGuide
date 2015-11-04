@@ -3,7 +3,7 @@
 	angular.module('app')
 	.controller('PomodoroController', PomodoroController);
 
-	function PomodoroController($interval) {
+	function PomodoroController($interval,$timeout) {
 		var pom = this;
 
                pom.shours = [0,1,2,3,4,5,6,7,8,9,10,11,12];

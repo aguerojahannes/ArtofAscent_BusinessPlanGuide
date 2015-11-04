@@ -164,12 +164,12 @@
 
 
 <!-- Pomodoro -->
-<div layout style="color:white;">
+<div layout style="color:white;" ng-controller="PomodoroController as pom">
 <form ng-submit="pom.getValues()" id="formid">
 	<label>Session </label>
-			<md-select ng-model="sestime" id="shrid">
+			<select ng-model="sestime" id="shrid">
 			  <option ng-repeat="c in pom.shours" value="{{c}}">{{c}}</option>
-		  </md-select>
+		  </select>
 				<select ng-model="sessionM" id="sminid">
 			  <option ng-repeat="c in pom.smins" value="{{c}}">{{c}}</option>
 			</select>
@@ -190,4 +190,27 @@
 				<md-button >Start</md-button>
 				<md-button type="button" ng-click="pom.stop();">Cancel</md-button>
 </form>
+
+Session Clock
+<md-input-container>
+	<input type="text" ng-model="pom.shr">
+</md-input-container>
+<md-input-container>
+	<input type="text" ng-model="pom.smin">
+</md-input-container>
+<md-input-container>
+	<input type="text" ng-model="pom.ssecond">
+</md-input-container>
+
+	Break Clock
+<md-input-container>
+	<input type="text" ng-model="pom.bhr">
+</md-input-container>
+<md-input-container>
+	<input type="text" ng-model="pom.bmin">
+</md-input-container>
+<md-input-container>
+	<input type="text" ng-model="pom.bsecond">
+</md-input-container>
+
 </div>
