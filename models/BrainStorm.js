@@ -4,8 +4,8 @@ var jwt = require('jsonwebtoken');
 
 var BrainstormSchema = new mongoose.Schema({
  user: String,
-  brainstorm: String,
-  date: {type: Date, default: Date.now}
+ brainstorm: String,
+ date: {type: Date, default: Date.now}
 });
 
 
