@@ -1,5 +1,5 @@
 // Auth Interceptor - if token exists put it on the request and send it on the way.
-// On App.JS: make sure to add $httpProvider to .config, and $httpProvider.Interceptors.push("AuthInterceptor");
+// On App.JS: make sure to add $httpProvider to .config, and $httpProvider.interceptors.push("AuthInterceptor");
 // On Index: add to <script>
 (function() {
     'use strict';
